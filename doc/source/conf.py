@@ -12,8 +12,7 @@
 #
 import os
 import sys
-#sys.path.append(os.path.abspath('../../How-To-Document-Data-Science-Projects'))
-sys.path.insert(0, os.path.abspath('../../How-To-Document-Data-Science-Projects'))
+sys.path.insert(0, os.path.abspath('.'))
 
 
 # -- Project information -----------------------------------------------------
