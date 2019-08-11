@@ -5,4 +5,5 @@ __pycache__
 build/
 dist/
 doc/build
-__pycache__
+*/__pycache__
+
