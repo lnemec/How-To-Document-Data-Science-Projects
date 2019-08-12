@@ -1,0 +1,54 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+strategy:
+  matrix:
+    Python36:
+      python.version: '3.6'
+      architecture: 'x64'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+  displayName: 'Use python $(python.version)'
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r Requirements.txt
+  displayName: 'Install dependencies'
+
+- script: |
+    pip install --upgrade sphinx
+  displayName: 'Install sphinx'
+
+- script: |
+    python setup.py install
+  displayName: 'Setup python package.'
+
+- task: CmdLine@2
+  inputs:
+    script: 'make html' 
+    workingDirectory: '$(Build.SourcesDirectory)/doc/' 
+  displayName: 'Compile documentation'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/doc/build/html'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    Contents: '**'
+  displayName: 'Copy documentation files to artifact directory'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+  displayName: 'Publish documentation as artifact'
