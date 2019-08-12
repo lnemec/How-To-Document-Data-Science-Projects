@@ -21,7 +21,7 @@ def load():
 
     The MNIST dataset is distributed with the TensorFlow code.
 
-    :return: data dictionary
+    :return: data dictionary containing the test, train and validation set.
     """
     from tensorflow.keras.datasets.mnist import load_data
     from tensorflow.keras.utils import to_categorical
