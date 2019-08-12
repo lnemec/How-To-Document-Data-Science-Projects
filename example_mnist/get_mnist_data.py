@@ -20,6 +20,13 @@ def load():
     efforts on preprocessing and formatting.
 
     The MNIST dataset is distributed with the TensorFlow code.
+    
+    The original mnistdata consists of greyscale images, where the colour values
+    are defined between 0 and 255. The images are converted from integer valued
+    colour codes to floating point colour code and are rescaled to range from
+    0 to 1. 5000 thousand images from the training set a kept as a final
+    validation dataset. The categorical labels are converted using one-hot
+    encoding. 
 
     :return: data dictionary containing the test, train and validation set.
     """
