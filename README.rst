@@ -10,7 +10,7 @@ experiment and made available to your users or co-workers using generally
 available tools including sphinx, GitHub, Microsoft Azure DevOps, and Azure
 storage or Azure web Services.
 
-.. _medium: https://medium.com/
+.. _medium: https://medium.com/@LydiaNemec/documenting-your-data-science-project-a-guide-to-publish-your-sphinx-code-documentation-d1afeb110696
 
 Problem Statement
 =================
