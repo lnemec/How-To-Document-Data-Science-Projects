@@ -29,5 +29,4 @@ learning models can be found at the MNIST `website`_ of Yann LeCunn.
 The Data Set
 ============
 
-The MNIST dataset was created by combining samples from the MINST's
-original datasets.
+The MNIST dataset was created by combining samples from MINST's original datasets.
